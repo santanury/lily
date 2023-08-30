@@ -16,7 +16,7 @@ const StackNav = () => {
       <Stack.Navigator
         options={{gestureEnabled: false}}
         screenOptions={{headerShown: false}}
-        initialRouteName="Splash">
+        initialRouteName="Login">
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
