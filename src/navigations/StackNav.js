@@ -7,6 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Splash from '../screens/Splash';
 import Login from '../screens/Login';
+import TabNav from './TabNav';
 
 const Stack = createStackNavigator();
 
@@ -16,9 +17,10 @@ const StackNav = () => {
       <Stack.Navigator
         options={{gestureEnabled: false}}
         screenOptions={{headerShown: false}}
-        initialRouteName="Login">
+        initialRouteName="TabNav">
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="TabNav" component={TabNav} />
       </Stack.Navigator>
     </NavigationContainer>
   );

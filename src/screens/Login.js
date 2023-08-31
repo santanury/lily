@@ -57,7 +57,7 @@ const Login = ({navigation, route}) => {
             delay={1000}>
             <View style={styles.rowFlex1}>
               <Text style={styles.txtPatt2}>
-                {toggle ? `Don't have anaccount?` : `Already have an account?`}
+                {toggle ? `Don't have an account?` : `Already have an account?`}
               </Text>
               <TouchableOpacity onPress={() => setToggle(!toggle)}>
                 <Text style={[styles.txtPatt2, {color: COLORS.indego}]}>
