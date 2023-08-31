@@ -120,10 +120,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btn1: {
+    alignItems: 'center',
+    width: SIZES.width * 0.5,
     borderWidth: normalize(2),
     borderColor: COLORS.white,
-    paddingHorizontal: normalize(40),
-    paddingVertical: normalize(5),
+    paddingVertical: normalize(7),
     borderTopRightRadius: normalize(100),
     borderBottomRightRadius: normalize(100),
   },
