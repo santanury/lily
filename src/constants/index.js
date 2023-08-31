@@ -1,17 +1,7 @@
 import icons from './icons';
 import images from './images';
-import {
-  COLORS,
-  //  FONTS,
-  SIZES,
-  SHADOW,
-} from './themes';
+import normalize from './normalize';
 
-export {
-  icons,
-  images,
-  COLORS,
-  //  FONTS,
-  SIZES,
-  SHADOW,
-};
+import {COLORS, FONTS, SIZES, SHADOW} from './themes';
+
+export {normalize, icons, images, COLORS, FONTS, SIZES, SHADOW};
