@@ -12,36 +12,10 @@ export const COLORS = {
   warning: '#FF9900',
   darkGray: '#666A74',
   danger: '#FF0000',
-  gamboge: '#E69516',
+  primary: '#E69516',
 };
 
 export const FONTS = {
-  // Grotesque18CondensedBold: 'BricolageGrotesque_18pt_Condensed-Bold',
-  // Grotesque18CondensedExtraBold: 'BricolageGrotesque_18pt_Condensed-ExtraBold',
-  // Grotesque18CondensedExtraLight:
-  //   'BricolageGrotesque_18pt_Condensed-ExtraLight',
-  // Grotesque18CondensedLight: 'BricolageGrotesque_18pt_Condensed-Light',
-  // Grotesque18CondensedMedium: 'BricolageGrotesque_18pt_Condensed-Medium',
-  // Grotesque18CondensedRegular: 'BricolageGrotesque_18pt_Condensed-Regular',
-  // Grotesque18CondensedSemiBold: 'BricolageGrotesque_18pt_Condensed-SemiBold',
-  // Grotesque18SemiCondensedExtraBold:
-  //   'BricolageGrotesque_18pt_SemiCondensed-ExtraBold',
-  // Grotesque18SemiCondensedExtraLight:
-  //   'BricolageGrotesque_18pt_SemiCondensed-ExtraLight',
-  // Grotesque18SemiCondensedLight: 'BricolageGrotesque_18pt_SemiCondensed-Light',
-  // Grotesque18SemiCondensedMedium:
-  //   'BricolageGrotesque_18pt_SemiCondensed-Medium',
-  // Grotesque18SemiCondensedRegular:
-  //   'BricolageGrotesque_18pt_SemiCondensed-Regular',
-  // Grotesque18SemiCondensedSemiBold:
-  //   'BricolageGrotesque_18pt_SemiCondensed-SemiBold',
-  // Grotesque18Bold: 'BricolageGrotesque_18pt-Bold',
-  // Grotesque18ExtraBold: 'BricolageGrotesque_18pt-ExtraBold',
-  // Grotesque18ExtraLight: 'BricolageGrotesque_18pt-ExtraLight',
-  // Grotesque18Light: 'BricolageGrotesque_18pt-Light',
-  // Grotesque18Medium: 'BricolageGrotesque_18pt-Medium',
-  // Grotesque18Regular: 'BricolageGrotesque_18pt-Regular',
-  // Grotesque18SemiBold: 'BricolageGrotesque_18pt-SemiBold',
   BricolageGrotesqueBold: 'BricolageGrotesque-Bold',
   BricolageGrotesqueExtraBold: 'BricolageGrotesque-ExtraBold',
   BricolageGrotesqueExtraLight: 'BricolageGrotesque-ExtraLight',

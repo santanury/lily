@@ -6,12 +6,19 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {COLORS, images, icons, SIZES, normalize, FONTS} from '../constants';
 
 // screens
+import List from '../screens/List';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 
 const Tab = createBottomTabNavigator();
 
 const TAB_ARRAY = [
+  {
+    name: 'List',
+    component: List,
+    icon: icons.list,
+    iconFilled: icons.listFilled,
+  },
   {
     name: 'Home',
     component: Home,
@@ -27,20 +34,41 @@ const TAB_ARRAY = [
 ];
 
 const TabButton = props => {
+  const animate1 = {
+    0: {scale: 0.5, translateY: 12},
+    0.92: {translateY: -34},
+    1: {scale: 1.2, translateY: -24},
+  };
+
+  const animate2 = {
+    0: {scale: 1.2, translateY: -24},
+    1: {scale: 1, translateY: 12},
+  };
+
+  const circle1 = {
+    0: {scale: 0},
+    0.3: {scale: 0.9},
+    0.5: {scale: 0.2},
+    0.8: {scale: 0.7},
+    1: {scale: 1},
+  };
+
+  const circle2 = {0: {scale: 1}, 1: {scale: 0}};
+
   const {item, onPress, accessibilityState} = props;
   const focused = accessibilityState.selected;
   const viewRef = useRef(null);
+  const circleRef = useRef(null);
+  const textRef = useRef(null);
 
   useEffect(() => {
     focused
-      ? viewRef.current.animate({
-          0: {scale: 1, rotate: '0deg'},
-          1: {scale: 1.3, rotate: '720deg'},
-        })
-      : viewRef.current.animate({
-          0: {scale: 1.3, rotate: '0deg'},
-          1: {scale: 1, rotate: '0deg'},
-        });
+      ? (viewRef.current.animate(animate1),
+        circleRef.current.animate(circle1),
+        textRef.current.transitionTo({scale: 1}))
+      : (viewRef.current.animate(animate2),
+        circleRef.current.animate(circle2),
+        textRef.current.transitionTo({scale: 0}));
   }, [focused]);
 
   return (
@@ -48,18 +76,23 @@ const TabButton = props => {
       onPress={onPress}
       activeOpacity={1}
       style={styles.tabButton}>
-      <View style={styles.tabButton}>
-        <Animatable.Image // tab icon
-          ref={viewRef}
-          duration={500}
-          resizeMode="contain"
-          style={[
-            styles.tabIcon,
-            {...(focused && {tintColor: COLORS.gamboge})},
-          ]}
-          source={focused ? item.iconFilled : item.icon}
-        />
-      </View>
+      <Animatable.View style={styles.tabButton} ref={viewRef} duration={500}>
+        <View style={styles.btn1}>
+          <Animatable.View ref={circleRef} style={styles.iconCont} />
+          <Image // tab icon
+            resizeMode="contain"
+            style={[
+              styles.tabIcon,
+              {tintColor: focused ? COLORS.white : COLORS.primary},
+            ]}
+            source={focused ? item.iconFilled : item.icon}
+          />
+        </View>
+
+        <Animatable.Text ref={textRef} style={styles.txtPatt1}>
+          {item.name}
+        </Animatable.Text>
+      </Animatable.View>
     </TouchableOpacity>
   );
 };
@@ -84,7 +117,7 @@ const TabNav = ({navigation, route}) => {
                     resizeMode="contain"
                     style={[
                       styles.tabIcon,
-                      {...(focused && {tintColor: COLORS.gamboge})},
+                      {...(focused && {tintColor: COLORS.primary})},
                     ]}
                     source={focused ? item.iconFilled : item.icon}
                   />
@@ -107,7 +140,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: normalize(70),
-    // backgroundColor: 'red',
   },
   container: {
     flex: 1,
@@ -120,11 +152,10 @@ const styles = StyleSheet.create({
     tabBarStyle: {
       height: normalize(70),
       position: 'absolute',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      borderTopRightRadius: normalize(20),
-      borderTopLeftRadius: normalize(20),
+      bottom: normalize(16),
+      left: normalize(16),
+      right: normalize(16),
+      borderRadius: normalize(16),
       backgroundColor: COLORS.white,
     },
   },
@@ -133,5 +164,26 @@ const styles = StyleSheet.create({
     width: normalize(20),
     alignSelf: 'center',
     marginBottom: normalize(4),
+  },
+
+  btn1: {
+    width: normalize(50),
+    height: normalize(50),
+    borderRadius: normalize(25),
+    borderWidth: normalize(4),
+    borderColor: COLORS.white,
+    backgroundColor: COLORS.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  iconCont: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: COLORS.primary,
+    borderRadius: normalize(25),
+  },
+  txtPatt1: {
+    fontSize: normalize(12),
+    color: COLORS.black,
+    fontFamily: FONTS.BricolageGrotesqueSemiBold,
   },
 });

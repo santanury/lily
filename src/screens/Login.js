@@ -127,8 +127,7 @@ const Login = ({navigation, route}) => {
               duration={1000}
               delay={1500}>
               <TouchableOpacity // enter button
-              // onPress={() => navigation.navigate('Login')}
-              >
+                onPress={() => navigation.navigate('TabNav')}>
                 <Text style={styles.txtPatt5}>
                   {toggle ? `Login -` : `Sign Up  -`}
                 </Text>
@@ -147,7 +146,7 @@ const styles = StyleSheet.create({
   cont: {flex: 1, flexDirection: 'row'},
   leftCont: {
     flex: 1,
-    backgroundColor: COLORS.gamboge,
+    backgroundColor: COLORS.primary,
   },
   rightCont: {
     flex: 3,
