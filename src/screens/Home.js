@@ -73,7 +73,7 @@ const Home = ({navigation, route}) => {
             animated to move down and up, and it is also semi-transparent. On
             right you have the Profile icon, which will take you to your profile
             screen. On left you have the List icon, which will take you to your
-            list screen. You can
+            list screen.
           </Animatable.Text>
         </ImageBackground>
       </KeyboardAvoidingView>
@@ -86,7 +86,6 @@ export default Home;
 const styles = StyleSheet.create({
   scrollCont: {
     flex: 1,
-    zIndex: 1,
     backgroundColor: COLORS.transparent,
   },
   middleStrip: {

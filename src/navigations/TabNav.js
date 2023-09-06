@@ -102,7 +102,7 @@ const TabNav = ({navigation, route}) => {
     <SafeAreaProvider // main container
       style={styles.container}>
       <Tab.Navigator //
-        initialRouteName={'Home'}
+        initialRouteName={'Profile'}
         screenOptions={styles.screenOptions}>
         {TAB_ARRAY.map((item, index) => {
           return (
