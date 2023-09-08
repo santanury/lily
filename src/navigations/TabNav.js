@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   screenOptions: {
+    keyboardHidesTabBar: true,
     headerShown: false,
     lazy: true,
     unmountOnBlur: true,

@@ -14,10 +14,14 @@ import {
 } from 'react-native';
 import React, {useRef, useEffect, useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
+import {Actionsheet} from 'native-base';
 import * as Animatable from 'react-native-animatable';
+import {TextInput} from '@react-native-material/core';
 import {COLORS, images, icons, SIZES, normalize, FONTS} from '../constants';
 
 const Profile = ({navigation, route}) => {
+  const [editMdl, setEditMdl] = useState(false);
+
   return (
     <>
       <KeyboardAvoidingView // keyboard avoiding view
@@ -46,6 +50,7 @@ const Profile = ({navigation, route}) => {
               <Text style={styles.txtPatt1}>Santanu Roy</Text>
               <View style={{flex: 1, flexDirection: 'row'}}>
                 <TouchableOpacity // edit name button
+                  onPress={() => setEditMdl(true)}
                   style={{marginLeft: normalize(12)}}
                   activeOpacity={0.7}>
                   <Feather name={'edit-2'} size={20} color={COLORS.white} />
@@ -55,7 +60,32 @@ const Profile = ({navigation, route}) => {
 
             <Text style={styles.txtPatt2}>Kolkata, India</Text>
           </View>
+
+          <View style={styles.rowFlex2}>
+            <View style={styles.infoCont}>
+              <Text>Height</Text>
+              <Text>1.65m</Text>
+            </View>
+            <View style={styles.infoCont}>
+              <Text>Age</Text>
+              <Text>26</Text>
+            </View>
+            <View style={styles.infoCont}>
+              <Text>Weight</Text>
+              <Text>62</Text>
+            </View>
+          </View>
         </ScrollView>
+
+        {/* <Actionsheet // sort actionsheet
+          style={{flex: 1}}
+          isOpen={editMdl}
+          onClose={() => setEditMdl(false)}
+          size="full">
+          <Actionsheet.Content>
+            <TextInput variant="outlined" label="Label" style={{margin: 16}} />
+          </Actionsheet.Content>
+        </Actionsheet> */}
       </KeyboardAvoidingView>
     </>
   );
@@ -101,5 +131,15 @@ const styles = StyleSheet.create({
   rowFlex1: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  rowFlex2: {
+    width: SIZES.width,
+    flexDirection: 'row',
+    marginTop: normalize(30),
+  },
+  infoCont: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
