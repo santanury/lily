@@ -13,6 +13,7 @@ import {
   PermissionsAndroid,
 } from 'react-native';
 import React, {useRef, useEffect, useState} from 'react';
+import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 import {COLORS, images, icons, SIZES, normalize, FONTS} from '../constants';
 
@@ -39,7 +40,19 @@ const Profile = ({navigation, route}) => {
               />
             </TouchableOpacity>
 
-            <Text style={styles.txtPatt1}>Santanu Roy</Text>
+            <View // name and edit button container
+              style={styles.rowFlex1}>
+              <View style={{flex: 1}} />
+              <Text style={styles.txtPatt1}>Santanu Roy</Text>
+              <View style={{flex: 1, flexDirection: 'row'}}>
+                <TouchableOpacity // edit name button
+                  style={{marginLeft: normalize(12)}}
+                  activeOpacity={0.7}>
+                  <Feather name={'edit-2'} size={20} color={COLORS.white} />
+                </TouchableOpacity>
+              </View>
+            </View>
+
             <Text style={styles.txtPatt2}>Kolkata, India</Text>
           </View>
         </ScrollView>
@@ -71,5 +84,22 @@ const styles = StyleSheet.create({
     borderRadius: normalize(50),
     resizeMode: 'cover',
     borderWidth: normalize(2),
+  },
+  txtPatt1: {
+    fontFamily: FONTS.BricolageGrotesqueExtraBold,
+    fontSize: normalize(20),
+    color: COLORS.white,
+    marginTop: normalize(8),
+  },
+  txtPatt2: {
+    fontFamily: FONTS.BricolageGrotesqueSemiBold,
+    fontSize: normalize(14),
+    color: COLORS.white + 99,
+    marginTop: normalize(2),
+    marginBottom: normalize(16),
+  },
+  rowFlex1: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
